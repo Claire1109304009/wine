@@ -1,0 +1,294 @@
+/* 基本重設 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Microsoft JhengHei", sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* ================= 頂部導覽列 ================= */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* 圖片與文字的間距 */
+}
+
+.logo-img {
+    width: 50px;  /* 可自行調整寬度 */
+    height: auto;
+}
+
+.site-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4a3728;
+}
+
+.about-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid #777;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #333;
+    transition: 0.3s;
+}
+
+.about-btn:hover {
+    background-color: #4a3728;
+    color: #fff;
+    border-color: #4a3728;
+}
+
+/* ================= 左右分區主架構 ================= */
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: 30px auto; /* 上下留出一點空間 */
+    padding: 0 15px;
+    gap: 30px; /* 左右兩區的間距 */
+}
+
+/* 左邊區域 (寬度佔 30%) */
+.left-section {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* 右邊區域 (寬度佔 70%) */
+.right-section {
+    flex: 7;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ================= 左邊：最新消息與商品專區盒模型 ================= */
+.section-title {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #2c3e50;
+}
+
+/* 綠藍色調框框 (參考 image_bad849.png 的色彩) */
+.content-block {
+    background-color: #c5dbe0;
+    border-radius: 12px;
+    padding: 20px;
+    min-height: 150px;
+}
+
+.content-block p {
+    margin-bottom: 12px;
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+/* 點選連結清單 */
+.links-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.links-list a {
+    text-decoration: none;
+    color: #2c3e50;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.links-list a:hover {
+    color: #e67e22;
+    padding-left: 5px; /* 滑過時稍微右移的動態效果 */
+}
+
+/* ================= 右邊：主要大圖與搜尋 ================= */
+.main-banner {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.banner-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+}
+
+/* 搜尋框與按鈕（水平並排，且總長度跟大圖等長） */
+.search-container {
+    display: flex;
+    width: 100%;
+    margin-bottom: 35px; /* 留一點空間給下面的線 */
+}
+
+.search-input {
+    flex: 1; /* 讓輸入框自動伸展佔滿左側所有空間 */
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-right: none; /* 去除右邊界與按鈕完美結合 */
+    border-radius: 4px 0 0 4px;
+    font-size: 15px;
+}
+
+
+.search-btn {
+    padding: 10px 25px;
+    border: 1px solid #ccc;
+    background-color: #4a77a4;
+    color: white;
+    font-weight: bold;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.search-btn:hover {
+    background-color: #4a77a4;
+}
+
+/* ================= 中間推薦分隔線 ================= */
+.recommend-divider {
+    position: relative;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* 用偽元素做出中間一條橫線效果 */
+.recommend-divider::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #ccc;
+    z-index: 1;
+}
+
+.divider-text {
+    position: relative;
+    background-color: #f4f4f4; /* 與網頁底色相同，遮住橫線 */
+    padding: 0 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #555;
+    z-index: 2;
+}
+
+/* ================= 3列 * 2行 商品展示區 ================= */
+.wine-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 11fr); /* 2行 */
+    grid-auto-rows: auto; /* 自動增長成 3列 */
+    gap: 20px; /* 卡片之間的間距 */
+}
+
+.wine-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.wine-img {
+    width: 50%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 8px;
+}
+
+.wine-name {
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+}
+
+/* ================= 最下面一區：頁尾 ================= */
+.main-footer {
+    margin-top: 50px;
+    background-color: #a2b8e6; /* 橘黃色基調背景，參考 image_b06e2c.png */
+    color: #ffffff;
+    text-align: center;
+    padding: 12px 15px;
+    line-height: 1.4;
+}
+
+.main-footer a {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* ================= Liqueur 頁面專用：左圖右文橫向排列 ================= */
+.info-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* 每款酒之間的上下間距 */
+    width: 100%;
+}
+
+.info-row-item {
+    display: flex;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    align-items: center; /* 讓圖片跟文字在垂直方向居中對齊 */
+    
+    /* 🛠️ 核心重點：左邊圖片和右邊文字中間留白空間 */
+    gap: 25px; 
+}
+
+/* 圖片的外框固定大小 */
+.info-img-box {
+    flex: 0 0 180px; /* 固定圖片區的寬度為 180px，不被擠壓 */
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-img-box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* 確保不論酒瓶高矮都不會變形 */
+}
+
+/* 右邊文字說明的區域 */
+.info-text-box {
+    flex: 1; /* 讓文字自動佔滿右邊剩下的所有空間 */
+}
+
+.info-text-box h3 {
+    font-size: 18px;
+    color: #4a3728;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.info-text-box p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+    text-align: justify; /* 讓文字兩端對齊，排版更漂亮 */
+}
